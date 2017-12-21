@@ -8,13 +8,21 @@ import {Form} from './form';
     styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-
+    selectedValue: string = '';
+    genders: any = ['Male', 'Female'];
+    radioChangeHandler (event: any){
+        this.selectedValue = event.target.value;
+    }
     states = ['--Select--', 'Punjab', 'Himachal Pardesh',
         'Chandigarh', 'Haryana'];
 
-    model = new Form('', '', this.states[0], '');
+    model = new Form('', '', this.states[0]);
 
     submitted = false;
+
+    name = 'checkbox';
+    student = false;
+    other = false;
 
     onSubmit() {
         this.submitted = true;
@@ -24,4 +32,7 @@ export class FormComponent {
             form.controls['name'].value;
     }
 
+
+
 }
+
